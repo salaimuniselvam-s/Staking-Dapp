@@ -28,7 +28,7 @@ function BuyToken({ setReloadPage, reloadPage, stakedBalance }) {
         type: "error",
         message: `Token  Must  Greater than Zero`,
         title: "Buy Token",
-        position: "topR",
+        position: "bottomR",
       });
       return;
     }
@@ -47,7 +47,7 @@ function BuyToken({ setReloadPage, reloadPage, stakedBalance }) {
         type: "success",
         message: ``,
         title: "Successfully Bought Token..",
-        position: "topR",
+        position: "bottomR",
       });
       setReloadPage(!reloadPage);
     } catch (error) {
@@ -56,7 +56,7 @@ function BuyToken({ setReloadPage, reloadPage, stakedBalance }) {
         type: "error",
         message: "Token Buying Failed.Please Try Again",
         title: "Token Buying Failed",
-        position: "topR",
+        position: "bottomR",
       });
     }
   }

@@ -26,7 +26,7 @@ function ClaimToken({ setReloadPage, reloadPage, earnedBalance }) {
         type: "error",
         message: `Claim Amount Should Be Greater than Zero`,
         title: "Claim Token",
-        position: "topR",
+        position: "bottomR",
       });
       return;
     }
@@ -42,7 +42,7 @@ function ClaimToken({ setReloadPage, reloadPage, earnedBalance }) {
         type: "success",
         message: ``,
         title: "Successfully Claimed Rewards",
-        position: "topR",
+        position: "bottomR",
       });
       setReloadPage(!reloadPage);
     } catch (error) {
@@ -51,7 +51,7 @@ function ClaimToken({ setReloadPage, reloadPage, earnedBalance }) {
         type: "error",
         message: "Token Claim Failed.Please Try Again",
         title: "Token Claim Failed",
-        position: "topR",
+        position: "bottomR",
       });
     }
   }
