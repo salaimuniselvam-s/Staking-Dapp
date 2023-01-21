@@ -1,13 +1,40 @@
-# Sample Hardhat Project
+# Decentralised Staking Application
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+Decentralised Staking Application Where Users can Stake their token for rewards. Application Was Deployed on Polygon Mumbai Test Network.
 
-Try running some of the following tasks:
+## pre-requiste
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
+```sh
+nodejs
 ```
+
+## Building and running on localhost
+
+To Install UI dependencies:
+
+```sh
+cd client
+npm install
+```
+
+To Install Contract Dependencies
+
+```sh
+npm install
+```
+
+To Run Staking App,
+
+```sh
+cd client
+
+npm run dev
+
+-> Visit the port 3333 to view the application
+```
+
+## Contract Addresses
+
+[Reward Token Contract --> 0x0206986d06a6f78615213A83bfC9f6fD545885e8](https://mumbai.polygonscan.com/address/0x0206986d06a6f78615213A83bfC9f6fD545885e8#code)
+
+[Staking Contract --> 0x645d03EfCD6a704F3324820FC7437adEdbDae408](https://mumbai.polygonscan.com/address/0x645d03EfCD6a704F3324820FC7437adEdbDae408#code)

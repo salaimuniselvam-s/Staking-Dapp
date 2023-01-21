@@ -1,9 +1,9 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "E:\\stakinmg-minimal\\contracts\\Openzeppelin\\Context.sol": {
-      "lastModificationDate": 1673336158652,
-      "contentHash": "7093b039d79750162610c51cd75dfce8",
+    "D:\\BlockChain\\Ineuron\\Project\\staking-demo\\contracts\\Openzeppelin\\Context.sol": {
+      "lastModificationDate": 1674281599502,
+      "contentHash": "c4b296fb9a98a645ca52cc72c3fbae06",
       "sourceName": "contracts/Openzeppelin/Context.sol",
       "solcConfig": {
         "version": "0.8.6",
@@ -25,7 +25,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -36,9 +37,9 @@
         "Context"
       ]
     },
-    "E:\\stakinmg-minimal\\contracts\\Openzeppelin\\ERC20.sol": {
-      "lastModificationDate": 1673336172841,
-      "contentHash": "3bb08d2eb38e64281a5b77f74e052f28",
+    "D:\\BlockChain\\Ineuron\\Project\\staking-demo\\contracts\\Openzeppelin\\ERC20.sol": {
+      "lastModificationDate": 1674281599502,
+      "contentHash": "5c739d0ba4220483464b1e11811e7d27",
       "sourceName": "contracts/Openzeppelin/ERC20.sol",
       "solcConfig": {
         "version": "0.8.6",
@@ -60,7 +61,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -75,9 +77,9 @@
         "ERC20"
       ]
     },
-    "E:\\stakinmg-minimal\\contracts\\Openzeppelin\\IERC20.sol": {
-      "lastModificationDate": 1673335942267,
-      "contentHash": "57745aa42fa0a7872eba2499c32651b7",
+    "D:\\BlockChain\\Ineuron\\Project\\staking-demo\\contracts\\Openzeppelin\\IERC20.sol": {
+      "lastModificationDate": 1674281599504,
+      "contentHash": "244f46be41856150d2333b5d3bb2ad80",
       "sourceName": "contracts/Openzeppelin/IERC20.sol",
       "solcConfig": {
         "version": "0.8.6",
@@ -99,7 +101,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -110,9 +113,9 @@
         "IERC20"
       ]
     },
-    "E:\\stakinmg-minimal\\contracts\\Openzeppelin\\IERC20Metadata.sol": {
-      "lastModificationDate": 1673336127689,
-      "contentHash": "e13da596fbf5c36b723a001996699cd2",
+    "D:\\BlockChain\\Ineuron\\Project\\staking-demo\\contracts\\Openzeppelin\\IERC20Metadata.sol": {
+      "lastModificationDate": 1674281599504,
+      "contentHash": "24f186419f9a910c0982e0ea0d379f90",
       "sourceName": "contracts/Openzeppelin/IERC20Metadata.sol",
       "solcConfig": {
         "version": "0.8.6",
@@ -134,7 +137,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -147,9 +151,9 @@
         "IERC20Metadata"
       ]
     },
-    "E:\\stakinmg-minimal\\contracts\\RewardToken.sol": {
-      "lastModificationDate": 1673336194779,
-      "contentHash": "761fa86613bd111b7ec94ae2e45767e3",
+    "D:\\BlockChain\\Ineuron\\Project\\staking-demo\\contracts\\RewardToken.sol": {
+      "lastModificationDate": 1674299396521,
+      "contentHash": "be8567c6dc81cd1838e3d8aeb3bcae69",
       "sourceName": "contracts/RewardToken.sol",
       "solcConfig": {
         "version": "0.8.6",
@@ -171,11 +175,13 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
-        "./Openzeppelin/ERC20.sol"
+        "./Openzeppelin/ERC20.sol",
+        "./Openzeppelin/Ownable.sol"
       ],
       "versionPragmas": [
         "^0.8.6"
@@ -184,9 +190,9 @@
         "RewardToken"
       ]
     },
-    "E:\\stakinmg-minimal\\contracts\\Staking.sol": {
-      "lastModificationDate": 1673336014688,
-      "contentHash": "9b4b62097b97668923d99d25c36c4061",
+    "D:\\BlockChain\\Ineuron\\Project\\staking-demo\\contracts\\Staking.sol": {
+      "lastModificationDate": 1674299444239,
+      "contentHash": "8ebfa05b6be51668ded1780f188f4175",
       "sourceName": "contracts/Staking.sol",
       "solcConfig": {
         "version": "0.8.6",
@@ -208,7 +214,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -222,9 +229,9 @@
         "staking"
       ]
     },
-    "E:\\stakinmg-minimal\\contracts\\Openzeppelin\\ReentrancyGuard.sol": {
-      "lastModificationDate": 1673335974519,
-      "contentHash": "a5d0f59059ee32092a8d43dc09c1ee0a",
+    "D:\\BlockChain\\Ineuron\\Project\\staking-demo\\contracts\\Openzeppelin\\ReentrancyGuard.sol": {
+      "lastModificationDate": 1674281599504,
+      "contentHash": "f0588ec923d6b3cf8a50dfde2a39bfc7",
       "sourceName": "contracts/Openzeppelin/ReentrancyGuard.sol",
       "solcConfig": {
         "version": "0.8.6",
@@ -246,7 +253,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -257,10 +265,10 @@
         "ReentrancyGuard"
       ]
     },
-    "E:\\staking-demo\\contracts\\Openzeppelin\\Context.sol": {
-      "lastModificationDate": 1673449017545,
-      "contentHash": "7093b039d79750162610c51cd75dfce8",
-      "sourceName": "contracts/Openzeppelin/Context.sol",
+    "D:\\BlockChain\\Ineuron\\Project\\staking-demo\\contracts\\Openzeppelin\\Ownable.sol": {
+      "lastModificationDate": 1674295708462,
+      "contentHash": "7b91b79f59f10e049cd54ed1c69ba6f1",
+      "sourceName": "contracts/Openzeppelin/Ownable.sol",
       "solcConfig": {
         "version": "0.8.6",
         "settings": {
@@ -281,492 +289,18 @@
                 "ast"
               ]
             }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "Context"
-      ]
-    },
-    "E:\\staking-demo\\contracts\\Openzeppelin\\ERC20.sol": {
-      "lastModificationDate": 1673449017546,
-      "contentHash": "3bb08d2eb38e64281a5b77f74e052f28",
-      "sourceName": "contracts/Openzeppelin/ERC20.sol",
-      "solcConfig": {
-        "version": "0.8.6",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
           },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
+          "libraries": {}
         }
       },
       "imports": [
-        "./IERC20.sol",
-        "./IERC20Metadata.sol",
         "./Context.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
       ],
       "artifacts": [
-        "ERC20"
-      ]
-    },
-    "E:\\staking-demo\\contracts\\Openzeppelin\\IERC20.sol": {
-      "lastModificationDate": 1673449017546,
-      "contentHash": "57745aa42fa0a7872eba2499c32651b7",
-      "sourceName": "contracts/Openzeppelin/IERC20.sol",
-      "solcConfig": {
-        "version": "0.8.6",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IERC20"
-      ]
-    },
-    "E:\\staking-demo\\contracts\\Openzeppelin\\IERC20Metadata.sol": {
-      "lastModificationDate": 1673449017546,
-      "contentHash": "e13da596fbf5c36b723a001996699cd2",
-      "sourceName": "contracts/Openzeppelin/IERC20Metadata.sol",
-      "solcConfig": {
-        "version": "0.8.6",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./IERC20.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IERC20Metadata"
-      ]
-    },
-    "E:\\staking-demo\\contracts\\RewardToken.sol": {
-      "lastModificationDate": 1673449017546,
-      "contentHash": "761fa86613bd111b7ec94ae2e45767e3",
-      "sourceName": "contracts/RewardToken.sol",
-      "solcConfig": {
-        "version": "0.8.6",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./Openzeppelin/ERC20.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.6"
-      ],
-      "artifacts": [
-        "RewardToken"
-      ]
-    },
-    "E:\\staking-demo\\contracts\\Staking.sol": {
-      "lastModificationDate": 1673449017546,
-      "contentHash": "9b4b62097b97668923d99d25c36c4061",
-      "sourceName": "contracts/Staking.sol",
-      "solcConfig": {
-        "version": "0.8.6",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./Openzeppelin/IERC20.sol",
-        "./Openzeppelin/ReentrancyGuard.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.6"
-      ],
-      "artifacts": [
-        "staking"
-      ]
-    },
-    "E:\\staking-demo\\contracts\\Openzeppelin\\ReentrancyGuard.sol": {
-      "lastModificationDate": 1673449017546,
-      "contentHash": "a5d0f59059ee32092a8d43dc09c1ee0a",
-      "sourceName": "contracts/Openzeppelin/ReentrancyGuard.sol",
-      "solcConfig": {
-        "version": "0.8.6",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "ReentrancyGuard"
-      ]
-    },
-    "D:\\staking-demo\\contracts\\Openzeppelin\\Context.sol": {
-      "lastModificationDate": 1673627464933,
-      "contentHash": "7093b039d79750162610c51cd75dfce8",
-      "sourceName": "contracts/Openzeppelin/Context.sol",
-      "solcConfig": {
-        "version": "0.8.6",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "Context"
-      ]
-    },
-    "D:\\staking-demo\\contracts\\Openzeppelin\\ERC20.sol": {
-      "lastModificationDate": 1673627464933,
-      "contentHash": "3bb08d2eb38e64281a5b77f74e052f28",
-      "sourceName": "contracts/Openzeppelin/ERC20.sol",
-      "solcConfig": {
-        "version": "0.8.6",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./IERC20.sol",
-        "./IERC20Metadata.sol",
-        "./Context.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "ERC20"
-      ]
-    },
-    "D:\\staking-demo\\contracts\\Openzeppelin\\IERC20.sol": {
-      "lastModificationDate": 1673627464933,
-      "contentHash": "57745aa42fa0a7872eba2499c32651b7",
-      "sourceName": "contracts/Openzeppelin/IERC20.sol",
-      "solcConfig": {
-        "version": "0.8.6",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IERC20"
-      ]
-    },
-    "D:\\staking-demo\\contracts\\Openzeppelin\\IERC20Metadata.sol": {
-      "lastModificationDate": 1673627464933,
-      "contentHash": "e13da596fbf5c36b723a001996699cd2",
-      "sourceName": "contracts/Openzeppelin/IERC20Metadata.sol",
-      "solcConfig": {
-        "version": "0.8.6",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./IERC20.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IERC20Metadata"
-      ]
-    },
-    "D:\\staking-demo\\contracts\\RewardToken.sol": {
-      "lastModificationDate": 1673627464933,
-      "contentHash": "761fa86613bd111b7ec94ae2e45767e3",
-      "sourceName": "contracts/RewardToken.sol",
-      "solcConfig": {
-        "version": "0.8.6",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./Openzeppelin/ERC20.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.6"
-      ],
-      "artifacts": [
-        "RewardToken"
-      ]
-    },
-    "D:\\staking-demo\\contracts\\Staking.sol": {
-      "lastModificationDate": 1673627464933,
-      "contentHash": "9b4b62097b97668923d99d25c36c4061",
-      "sourceName": "contracts/Staking.sol",
-      "solcConfig": {
-        "version": "0.8.6",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./Openzeppelin/IERC20.sol",
-        "./Openzeppelin/ReentrancyGuard.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.6"
-      ],
-      "artifacts": [
-        "staking"
-      ]
-    },
-    "D:\\staking-demo\\contracts\\Openzeppelin\\ReentrancyGuard.sol": {
-      "lastModificationDate": 1673627464933,
-      "contentHash": "a5d0f59059ee32092a8d43dc09c1ee0a",
-      "sourceName": "contracts/Openzeppelin/ReentrancyGuard.sol",
-      "solcConfig": {
-        "version": "0.8.6",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "ReentrancyGuard"
+        "Ownable"
       ]
     }
   }

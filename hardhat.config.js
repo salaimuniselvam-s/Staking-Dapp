@@ -1,52 +1,43 @@
 require("@nomicfoundation/hardhat-toolbox");
-require('dotenv').config()
+require("dotenv").config();
 require("@nomiclabs/hardhat-etherscan");
 
-module.exports = {
+const PRIVATE_KEY =
+  process.env.PRIVATE_KEY ||
+  "0x11ee3108a03081fe260ecdc106554d09d9d1209bcafd46942b10e02943effc4a";
+const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || "";
+const POLYGONSCAN_KEY = process.env.POLYGONSCAN_KEY || "";
+const POLYGON_RPC_URL = process.env.POLYGON_RPC_URL || "";
 
+module.exports = {
   solidity: "0.8.6",
-  // settings:{
-  //   optimizer:{
-  //     enabled:true,
-  //     runs:200
-  //   }
-  
-  networks:{
-    hardhat:{
-      chainId:1337
+  settings:{
+    optimizer:{
+      enabled:true,
+      runs:200
     },
-    mumbai:{
-      url:`https://polygon-mumbai.infura.io/v3/${process.env.INFURA_API}`,
-      accounts:[process.env.MAIN_ACCOUNT],
-      chainId:80001,
+
+  networks: {
+    hardhat: {
+      chainId: 31337,
     },
- 
+    mumbai: {
+      url: POLYGON_RPC_URL,
+      accounts: [PRIVATE_KEY],
+      chainId: 80001,
+      blockConfirmations: 2,
+    },
+
     //go to metamask and select mumbai testnet
     //go to account details from the three dots option
     //select export private key
-    //copy and paste pvt key .env Main_account 
-
-  }
-}
-    // goerli:{
-    //   url: `https://goerli.infura.io/v3/${process.env.INFURA_API}`,
-    //   accounts:[process.env.MAIN_ACCOUNT],
-    //   chainId: 5,
-    // },
-    // mumbai:{
-    //   url:`https://polygon-mumbai.infura.io/v3/${process.env.INFURA_API}`,
-    //   accounts:[process.env.MAIN_ACCOUNT],
-    //   chainId:80001,
-    // },
-
-
-  
-  // gasReporter:{
-  //   enabled:true,
-  //   currency:"INR",
-  //   coinmarketcap:process.env.COINMARKETCAP,
-  //   token:"matic",
-  //   outputFile:"gasReports.txt",
-  //   noColors:true
-  // }
-  
+    //copy and paste pvt key .env PRIVATE_KEY
+  },
+  etherscan: {
+    apiKey: {
+      goerli: ETHERSCAN_API_KEY,
+      polygonMumbai: POLYGONSCAN_KEY,
+    },
+    customChains: [], // uncomment this line if you are getting a TypeError: customChains is not iterable
+  },
+};

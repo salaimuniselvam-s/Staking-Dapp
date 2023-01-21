@@ -1,73 +1,120 @@
-import React from 'react';
-import { useWeb3Contract } from 'react-moralis';
-import StakingAbi from '../constants/Staking.json';
-import TokenAbi from '../constants/RewardToken.json';
-import { Form } from 'web3uikit';
-import { ethers } from 'ethers';
+import React, { useState } from "react";
+import { useWeb3Contract } from "react-moralis";
+import StakingAbi from "../constants/Staking.json";
+import TokenAbi from "../constants/RewardToken.json";
+import { Button, Form, Input, useNotification } from "web3uikit";
+import { ethers } from "ethers";
+import {
+  REWARD_TOKEN_ADDRESS,
+  STAKE_TOKEN_ADDRESS,
+} from "../constants/address";
 
-function StakeForm() {
-  const stakingAddress = "0x5f2839D359321e7B4504420A7c1648697aB4fFaB"; //replace this with the address where you have deployed your staking Smart Contract
-  const tesTokenAddress = "0x31352b63427113A9f654ef177e969C63406F22EE"; //replace this with the address where you have deployed your Reward Token Smart Contract
+function StakeForm({ setReloadPage, reloadPage }) {
+  const stakingAddress = STAKE_TOKEN_ADDRESS;
+  const rewardTokenAddress = REWARD_TOKEN_ADDRESS;
+  const [inputValue, setInputValue] = useState("");
 
   const { runContractFunction } = useWeb3Contract();
+  const dispatch = useNotification();
 
   let approveOptions = {
     abi: TokenAbi.abi,
-    contractAddress: tesTokenAddress,
-    functionName: 'approve'
+    contractAddress: rewardTokenAddress,
+    functionName: "approve",
   };
 
   let stakeOptions = {
     abi: StakingAbi.abi,
     contractAddress: stakingAddress,
-    functionName: 'stake'
+    functionName: "stake",
   };
 
   async function handleStakeSubmit(data) {
-    const amountToApprove = data.data[0].inputResult;
+    if (inputValue == 0 || !inputValue) {
+      dispatch({
+        type: "error",
+        message: `Stake Amount Should Be Greater than Zero`,
+        title: "Stake Token",
+        position: "topR",
+      });
+      return;
+    }
     approveOptions.params = {
-      amount: ethers.utils.parseEther(amountToApprove, 'ether'),
-      spender: stakingAddress
+      amount: ethers.utils.parseEther(inputValue, "ether"),
+      spender: stakingAddress,
     };
 
     const tx = await runContractFunction({
       params: approveOptions,
-      onError: (error) => console.log(error),
-      onSuccess: () => {
-        handleApproveSuccess(approveOptions.params.amount);
-      }
+      onError: (error) => {
+        dispatch({
+          type: "error",
+          message: "Staking Approve Failed.Please Try Again",
+          title: "Staking Failed",
+          position: "topR",
+        });
+        console.log(error);
+      },
+      onSuccess: () => {},
     });
+    await tx.wait(1);
+    handleApproveSuccess(approveOptions.params.amount);
   }
 
   async function handleApproveSuccess(amountToStakeFormatted) {
     stakeOptions.params = {
-      amount: amountToStakeFormatted
+      amount: amountToStakeFormatted,
     };
 
     const tx = await runContractFunction({
       params: stakeOptions,
-      onError: (error) => console.log(error)
+      onError: (error) => {
+        dispatch({
+          type: "error",
+          message: "Staking Failed.Please Try Again",
+          title: "Staking Failed",
+          position: "topR",
+        });
+        console.log(error);
+      },
     });
+    await tx?.wait(1);
 
-    await tx.wait(0);
-    console.log('Stake transaction complete');
+    if (tx) {
+      dispatch({
+        type: "success",
+        message: `${ethers.utils.formatEther(
+          amountToStakeFormatted
+        )} Token is Successfully Staked`,
+        title: "Successfully Staked..",
+        position: "topR",
+      });
+      console.log("Stake transaction complete");
+      setReloadPage(!reloadPage);
+    }
   }
 
   return (
-    <div className='text-black'>
-      <Form
-        onSubmit={handleStakeSubmit}
-        data={[
-          {
-            inputWidth: '50%',
-            name: 'Amount to stake ',
-            type: 'number',
-            value: '',
-            key: 'amountToStake'
-          }
-        ]}
-        title="Stake Now!"
-      ></Form>
+    <div className="text-black mr-6 basis-2/5 mt-6 p-3 grow bg-slate-100 rounded-xl">
+      <div className="text-xl p-1 font-bold">Stake Token !</div>
+      <div className="p-1 mb-2 mt-3">
+        <Input
+          onChange={(e) => setInputValue(e.target.value)}
+          validation={{
+            numberMin: 0,
+          }}
+          type="number"
+          width="100%"
+          label="Stake Token"
+        />
+        <div className="pt-3 ">
+          <Button
+            onClick={handleStakeSubmit}
+            text="Stake Token"
+            theme="primary"
+          />
+        </div>
+      </div>
     </div>
   );
 }

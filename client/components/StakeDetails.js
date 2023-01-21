@@ -1,71 +1,139 @@
-import React, { useEffect, useState } from 'react';
-import { useMoralis, useWeb3Contract } from 'react-moralis';
-import StakingAbi from '../constants/Staking.json';
-import TokenAbi from '../constants/RewardToken.json';
+import React, { useEffect, useState } from "react";
+import { useMoralis, useWeb3Contract } from "react-moralis";
+import StakingAbi from "../constants/Staking.json";
+import TokenAbi from "../constants/RewardToken.json";
+import {
+  REWARD_TOKEN_ADDRESS,
+  STAKE_TOKEN_ADDRESS,
+} from "../constants/address";
+import { useNotification } from "web3uikit";
 
-function StakeDetails() {
+function StakeDetails({
+  reloadPage,
+  rtBalance,
+  setRtBalance,
+  stakedBalance,
+  setStakedBalance,
+  earnedBalance,
+  setEarnedBalance,
+}) {
   const { account, isWeb3Enabled } = useMoralis();
-  const [rtBalance, setRtBalance] = useState('0');
-  const [stakedBalance, setStakedBalance] = useState('0');
-  const [earnedBalance, setEarnedBalance] = useState('0');
-
-  const stakingAddress = "0x5f2839D359321e7B4504420A7c1648697aB4fFaB"; //replace this with the address where you have deployed your staking Smart Contract
-  const rewardTokenAddress = "0x31352b63427113A9f654ef177e969C63406F22EE"; //replace this with the address where you have deployed your Reward Token Smart Contract
+  const stakingAddress = STAKE_TOKEN_ADDRESS;
+  const rewardTokenAddress = REWARD_TOKEN_ADDRESS;
+  const dispatch = useNotification();
+  const [interval, setIntervals] = useState("");
 
   const { runContractFunction: getRTBalance } = useWeb3Contract({
     abi: TokenAbi.abi,
     contractAddress: rewardTokenAddress,
-    functionName: 'balanceOf',
+    functionName: "balanceOf",
     params: {
-      account
-    }
+      account,
+    },
   });
 
   const { runContractFunction: getStakedBalance } = useWeb3Contract({
     abi: StakingAbi.abi,
     contractAddress: stakingAddress,
-    functionName: 'getStaked',
+    functionName: "getStaked",
     params: {
-      account
-    }
+      account,
+    },
   });
 
   const { runContractFunction: getEarnedBalance } = useWeb3Contract({
     abi: StakingAbi.abi,
     contractAddress: stakingAddress,
-    functionName: 'earned',
+    functionName: "earned",
     params: {
-      account
-    }
+      account,
+    },
   });
 
+  useEffect(() => {
+    function updateEarnedBalance() {
+      if (stakedBalance == "0" || stakedBalance == "0.00") return;
+      const update = async () => {
+        const earnedBalance = (
+          await getEarnedBalance({ onError: (error) => console.log(error) })
+        )?.toString();
+        const formattedEarnedBalance = parseFloat(earnedBalance) / 1e18;
+        const formattedEarnedBalanceRounded = formattedEarnedBalance;
+        setEarnedBalance(
+          formattedEarnedBalanceRounded == "NaN"
+            ? 0
+            : formattedEarnedBalanceRounded
+        );
+      };
+      const intervals = setInterval(() => {
+        update();
+      }, [7000]);
+      if (interval) {
+        clearInterval(interval);
+      }
+      setIntervals(intervals);
+    }
+    if (isWeb3Enabled) updateEarnedBalance();
+  }, [isWeb3Enabled, account, stakedBalance]);
 
   useEffect(() => {
     async function updateUiValues() {
-      const rtBalance = (await getRTBalance({ onError: (error) => console.log(error) })).toString();
+      const rtBalance = (
+        await getRTBalance({ onError: (error) => console.log(error) })
+      )?.toString();
       const formattedRtBalance = parseFloat(rtBalance) / 1e18;
-      const formattedRtBalaceRounded = formattedRtBalance.toFixed(2);
-      setRtBalance(formattedRtBalaceRounded);
+      const formattedRtBalaceRounded = formattedRtBalance?.toFixed(2);
+      setRtBalance(
+        formattedRtBalaceRounded == "NaN" ? 0 : formattedRtBalaceRounded
+      );
+      if (formattedRtBalance == 0) {
+        dispatch({
+          type: "info",
+          message:
+            "You have 0 Sms Tokens. Use Buy Section below to buy Sms tokens With Ethers",
+          title: "Buy Sms Tokens",
+          position: "topR",
+        });
+      }
 
-      const stakedBalace = (await getStakedBalance({ onError: (error) => console.log(error) })).toString();
+      const stakedBalace = (
+        await getStakedBalance({ onError: (error) => console.log(error) })
+      )?.toString();
       const formattedStakedBalance = parseFloat(stakedBalace) / 1e18;
-      const formattedStakedBalanceRounded = formattedStakedBalance.toFixed(2);
-      setStakedBalance(formattedStakedBalanceRounded);
+      const formattedStakedBalanceRounded = formattedStakedBalance?.toFixed(2);
+      setStakedBalance(
+        formattedStakedBalanceRounded == "NaN"
+          ? 0
+          : formattedStakedBalanceRounded
+      );
 
-      const earnedBalance = (await getEarnedBalance({ onError: (error) => console.log(error) })).toString();
+      const earnedBalance = (
+        await getEarnedBalance({ onError: (error) => console.log(error) })
+      )?.toString();
       const formattedEarnedBalance = parseFloat(earnedBalance) / 1e18;
-      const formattedEarnedBalanceRounded = formattedEarnedBalance.toFixed(2);
-      setEarnedBalance(formattedEarnedBalanceRounded);
+      const formattedEarnedBalanceRounded = formattedEarnedBalance;
+      console.log(formattedEarnedBalanceRounded, "dfasda");
+      setEarnedBalance(
+        formattedEarnedBalanceRounded == "NaN"
+          ? 0
+          : formattedEarnedBalanceRounded
+      );
     }
 
     if (isWeb3Enabled) updateUiValues();
-  
-}, [account, getEarnedBalance, getRTBalance, getStakedBalance, isWeb3Enabled]);
-return (
-    <div className='p-3'>
-      <div className='font-bold m-2'>RT Balance is: {rtBalance}</div>
-      <div className='font-bold m-2'>Earned Balance is: {earnedBalance}</div>
-      <div className='font-bold m-2'>Staked Balance is: {stakedBalance}</div>
+  }, [account, getRTBalance, getStakedBalance, isWeb3Enabled, reloadPage]);
+
+  return (
+    <div className="p-3 flex flex-wrap">
+      <div className="font-bold my-3 mx-6">
+        Sms Token Balance is: {rtBalance}
+      </div>
+      <div className="font-bold my-3 mx-6">
+        Earned Balance is: {earnedBalance}
+      </div>
+      <div className="font-bold my-3 mx-6">
+        Staked Balance is: {stakedBalance}
+      </div>
     </div>
   );
 }
