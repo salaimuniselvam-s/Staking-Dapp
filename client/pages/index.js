@@ -2,7 +2,6 @@ import styles from "../styles/Home.module.css";
 import Header from "../components/Header";
 import StakeDetails from "../components/StakeDetails";
 import StakeForm from "../components/StakeForm";
-import { NotificationProvider } from "web3uikit";
 import { useState } from "react";
 import ClaimToken from "../components/ClaimToken";
 import WithDrawToken from "../components/WithdrawToken";
@@ -24,22 +23,20 @@ export default function Home() {
     setEarnedBalance,
   };
   return (
-    <NotificationProvider>
-      <main className="bg-gradient-to-r from-zinc-300 to-indigo-200">
-        <div className={` ${styles.container}`}>
-          <Header />
-          <StakeDetails {...props} />
+    <main className="bg-gradient-to-r from-zinc-300 to-indigo-200">
+      <div className={` ${styles.container}`}>
+        <Header />
+        <StakeDetails {...props} />
 
-          <div className="flex flex-wrap">
-            <StakeForm {...props} />
-            <BuyToken {...props} />
-          </div>
-          <div className="flex flex-wrap ">
-            <WithDrawToken {...props} />
-            <ClaimToken {...props} />
-          </div>
+        <div className="flex flex-wrap">
+          <StakeForm {...props} />
+          <BuyToken {...props} />
         </div>
-      </main>
-    </NotificationProvider>
+        <div className="flex flex-wrap ">
+          <WithDrawToken {...props} />
+          <ClaimToken {...props} />
+        </div>
+      </div>
+    </main>
   );
 }
