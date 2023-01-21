@@ -24,9 +24,9 @@ export default function Home() {
     setEarnedBalance,
   };
   return (
-    <main className="bg-gradient-to-r from-zinc-300 to-indigo-200">
-      <div className={` ${styles.container}`}>
-        <NotificationProvider>
+    <NotificationProvider>
+      <main className="bg-gradient-to-r from-zinc-300 to-indigo-200">
+        <div className={` ${styles.container}`}>
           <Header />
           <StakeDetails {...props} />
 
@@ -38,8 +38,8 @@ export default function Home() {
             <WithDrawToken {...props} />
             <ClaimToken {...props} />
           </div>
-        </NotificationProvider>
-      </div>
-    </main>
+        </div>
+      </main>
+    </NotificationProvider>
   );
 }
