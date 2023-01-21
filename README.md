@@ -1,6 +1,6 @@
 # Decentralised Staking Application
 
-Decentralised Staking Application Where Users can Stake their token for rewards. Application Was Deployed on Polygon Mumbai Test Network.
+Decentralised Staking Application Where Users can Stake their token for rewards. Application was Deployed on Polygon Mumbai Test Network.
 
 ## pre-requiste
 
