@@ -4,11 +4,11 @@ import { MoralisProvider } from "react-moralis";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <MoralisProvider initializeOnMount={false}>
-      <NotificationProvider>
+    <NotificationProvider>
+      <MoralisProvider initializeOnMount={false}>
         <Component {...pageProps} />
-      </NotificationProvider>
-    </MoralisProvider>
+      </MoralisProvider>
+    </NotificationProvider>
   );
 }
 
