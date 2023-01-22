@@ -6,6 +6,7 @@ import { useState } from "react";
 import ClaimToken from "../components/ClaimToken";
 import WithDrawToken from "../components/WithdrawToken";
 import BuyToken from "../components/BuyToken";
+import { NotificationProvider } from "web3uikit";
 
 export default function Home() {
   const [reloadPage, setReloadPage] = useState(false);
@@ -26,15 +27,25 @@ export default function Home() {
     <main className="bg-gradient-to-r  from-zinc-300 to-indigo-200">
       <div className={` ${styles.container}`}>
         <Header />
-        <StakeDetails {...props} />
+        <NotificationProvider>
+          <StakeDetails {...props} />
+        </NotificationProvider>
 
         <div className="flex flex-wrap">
-          <StakeForm {...props} />
-          <BuyToken {...props} />
+          <NotificationProvider>
+            <StakeForm {...props} />
+          </NotificationProvider>
+          <NotificationProvider>
+            <BuyToken {...props} />
+          </NotificationProvider>
         </div>
         <div className="flex flex-wrap ">
-          <WithDrawToken {...props} />
-          <ClaimToken {...props} />
+          <NotificationProvider>
+            <WithDrawToken {...props} />
+          </NotificationProvider>
+          <NotificationProvider>
+            <ClaimToken {...props} />
+          </NotificationProvider>
         </div>
       </div>
     </main>

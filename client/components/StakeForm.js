@@ -2,13 +2,7 @@ import React, { useState } from "react";
 import { useWeb3Contract } from "react-moralis";
 import StakingAbi from "../constants/Staking.json";
 import TokenAbi from "../constants/RewardToken.json";
-import {
-  Button,
-  Form,
-  Input,
-  NotificationProvider,
-  useNotification,
-} from "web3uikit";
+import { Button, Input, useNotification } from "web3uikit";
 import { ethers } from "ethers";
 import {
   REWARD_TOKEN_ADDRESS,
@@ -101,29 +95,27 @@ function StakeForm({ setReloadPage, reloadPage }) {
   }
 
   return (
-    <NotificationProvider>
-      <div className="text-black mr-6 basis-2/5 mt-6 p-3 grow bg-slate-100 rounded-xl">
-        <div className="text-xl p-1 font-bold">Stake Token !</div>
-        <div className="p-1 mb-2 mt-3">
-          <Input
-            onChange={(e) => setInputValue(e.target.value)}
-            validation={{
-              numberMin: 0,
-            }}
-            type="number"
-            width="100%"
-            label="Stake Token"
+    <div className="text-black mr-6 basis-2/5 mt-6 p-3 grow bg-slate-100 rounded-xl">
+      <div className="text-xl p-1 font-bold">Stake Token !</div>
+      <div className="p-1 mb-2 mt-3">
+        <Input
+          onChange={(e) => setInputValue(e.target.value)}
+          validation={{
+            numberMin: 0,
+          }}
+          type="number"
+          width="100%"
+          label="Stake Token"
+        />
+        <div className="pt-3 ">
+          <Button
+            onClick={handleStakeSubmit}
+            text="Stake Token"
+            theme="primary"
           />
-          <div className="pt-3 ">
-            <Button
-              onClick={handleStakeSubmit}
-              text="Stake Token"
-              theme="primary"
-            />
-          </div>
         </div>
       </div>
-    </NotificationProvider>
+    </div>
   );
 }
 

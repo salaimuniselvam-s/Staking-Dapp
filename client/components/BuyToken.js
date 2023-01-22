@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useWeb3Contract } from "react-moralis";
 import RewardTokenABI from "../constants/RewardToken.json";
-import { Button, Input, useNotification,NotificationProvider } from "web3uikit";
+import { Button, Input, useNotification } from "web3uikit";
 import { ethers } from "ethers";
 import {
   ETHER_TO_SMS_TOKEN,
@@ -61,7 +61,6 @@ function BuyToken({ setReloadPage, reloadPage }) {
   }
 
   return (
-    <NotificationProvider>
       <div className="text-black grow basis-2/5  mt-6 p-3  bg-slate-100 rounded-xl">
         <div className="flex flex-wrap justify-between ">
           <div className="text-xl p-1 font-bold">Buy Token !</div>
@@ -84,7 +83,6 @@ function BuyToken({ setReloadPage, reloadPage }) {
           </div>
         </div>
       </div>
-    </NotificationProvider>
   );
 }
 

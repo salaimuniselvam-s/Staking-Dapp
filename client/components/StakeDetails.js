@@ -6,7 +6,7 @@ import {
   REWARD_TOKEN_ADDRESS,
   STAKE_TOKEN_ADDRESS,
 } from "../constants/address";
-import { NotificationProvider, useNotification } from "web3uikit";
+import { useNotification } from "web3uikit";
 
 function StakeDetails({
   reloadPage,
@@ -124,19 +124,17 @@ function StakeDetails({
   }, [account, getRTBalance, getStakedBalance, isWeb3Enabled, reloadPage]);
 
   return (
-    <NotificationProvider>
-      <div className="p-3 flex flex-wrap">
-        <div className="font-bold my-3 mx-6">
-          Sms Token Balance is: {rtBalance}
-        </div>
-        <div className="font-bold my-3 mx-6">
-          Earned Balance is: {earnedBalance}
-        </div>
-        <div className="font-bold my-3 mx-6">
-          Staked Balance is: {stakedBalance}
-        </div>
+    <div className="p-3 flex flex-wrap">
+      <div className="font-bold my-3 mx-6">
+        Sms Token Balance is: {rtBalance}
       </div>
-    </NotificationProvider>
+      <div className="font-bold my-3 mx-6">
+        Earned Balance is: {earnedBalance}
+      </div>
+      <div className="font-bold my-3 mx-6">
+        Staked Balance is: {stakedBalance}
+      </div>
+    </div>
   );
 }
 
