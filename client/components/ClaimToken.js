@@ -1,9 +1,8 @@
 import React from "react";
 import { useWeb3Contract } from "react-moralis";
 import StakingAbi from "../constants/Staking.json";
-import { Button, Form, useNotification } from "web3uikit";
+import { Button,  NotificationProvider, useNotification } from "web3uikit";
 import {
-  REWARD_TOKEN_ADDRESS,
   STAKE_TOKEN_ADDRESS,
 } from "../constants/address";
 
@@ -57,20 +56,22 @@ function ClaimToken({ setReloadPage, reloadPage, earnedBalance }) {
   }
 
   return (
-    <div className="text-black grow basis-2/5  my-6 p-3  bg-slate-100 rounded-xl">
-      <div className="text-xl p-1 font-bold ">Claim Reward !</div>
-      <div className="border-spacing-3 border rounded-2xl py-2 my-3 px-3 border-slate-300">
-        Reward Balance is <b>{earnedBalance}</b>
+    <NotificationProvider>
+      <div className="text-black grow basis-2/5  my-6 p-3  bg-slate-100 rounded-xl">
+        <div className="text-xl p-1 font-bold ">Claim Reward !</div>
+        <div className="border-spacing-3 border rounded-2xl py-2 my-3 px-3 border-slate-300">
+          Reward Balance is <b>{earnedBalance}</b>
+        </div>
+        <div className="p-1 mt-3">
+          {" "}
+          <Button
+            onClick={handleClaimToken}
+            text="Claim Reward"
+            theme="primary"
+          />
+        </div>
       </div>
-      <div className="p-1 mt-3">
-        {" "}
-        <Button
-          onClick={handleClaimToken}
-          text="Claim Reward"
-          theme="primary"
-        />
-      </div>
-    </div>
+    </NotificationProvider>
   );
 }
 

@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { useWeb3Contract } from "react-moralis";
 import RewardTokenABI from "../constants/RewardToken.json";
-import { Button, Input, useNotification } from "web3uikit";
+import { Button, Input, useNotification,NotificationProvider } from "web3uikit";
 import { ethers } from "ethers";
 import {
   ETHER_TO_SMS_TOKEN,
   REWARD_TOKEN_ADDRESS,
-  STAKE_TOKEN_ADDRESS,
 } from "../constants/address";
 
-function BuyToken({ setReloadPage, reloadPage, stakedBalance }) {
+function BuyToken({ setReloadPage, reloadPage }) {
   const smsTokenAddress = REWARD_TOKEN_ADDRESS;
   const [inputValue, setInputValue] = useState("");
 
@@ -62,28 +61,30 @@ function BuyToken({ setReloadPage, reloadPage, stakedBalance }) {
   }
 
   return (
-    <div className="text-black grow basis-2/5  mt-6 p-3  bg-slate-100 rounded-xl">
-      <div className="flex flex-wrap justify-between ">
-        <div className="text-xl p-1 font-bold">Buy Token !</div>
-        <div className="mr-12 p-1">
-          1 Ether = <b>{ETHER_TO_SMS_TOKEN}(sms) </b> Tokens
+    <NotificationProvider>
+      <div className="text-black grow basis-2/5  mt-6 p-3  bg-slate-100 rounded-xl">
+        <div className="flex flex-wrap justify-between ">
+          <div className="text-xl p-1 font-bold">Buy Token !</div>
+          <div className="mr-12 p-1">
+            1 Ether = <b>{ETHER_TO_SMS_TOKEN}(sms) </b> Tokens
+          </div>
+        </div>
+        <div className="p-1 mb-2 mt-3">
+          <Input
+            onChange={(e) => setInputValue(e.target.value)}
+            validation={{
+              numberMin: 0,
+            }}
+            type="number"
+            width="100%"
+            label="Buy Token"
+          />
+          <div className="pt-3 ">
+            <Button onClick={handleBuyToken} text="Buy Token" theme="primary" />
+          </div>
         </div>
       </div>
-      <div className="p-1 mb-2 mt-3">
-        <Input
-          onChange={(e) => setInputValue(e.target.value)}
-          validation={{
-            numberMin: 0,
-          }}
-          type="number"
-          width="100%"
-          label="Buy Token"
-        />
-        <div className="pt-3 ">
-          <Button onClick={handleBuyToken} text="Buy Token" theme="primary" />
-        </div>
-      </div>
-    </div>
+    </NotificationProvider>
   );
 }
 

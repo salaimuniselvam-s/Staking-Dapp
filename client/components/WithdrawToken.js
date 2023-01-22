@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { useWeb3Contract } from "react-moralis";
 import StakingAbi from "../constants/Staking.json";
-import { Button, Input, useNotification } from "web3uikit";
+import {
+  Button,
+  Input,
+  NotificationProvider,
+  useNotification,
+} from "web3uikit";
 import { ethers } from "ethers";
 import { STAKE_TOKEN_ADDRESS } from "../constants/address";
 
@@ -66,33 +71,35 @@ function WithDrawToken({ setReloadPage, reloadPage, stakedBalance }) {
   }
 
   return (
-    <div className="text-black mr-6 basis-2/5 my-6 p-3 grow bg-slate-100 rounded-xl">
-      <div className="flex flex-wrap justify-between ">
-        <div className="text-xl p-1 font-bold">Withdraw Token !</div>
-        <div className="mr-12 p-1">
-          Staked Balance is <b>{stakedBalance}</b>
+    <NotificationProvider>
+      <div className="text-black mr-6 basis-2/5 my-6 p-3 grow bg-slate-100 rounded-xl">
+        <div className="flex flex-wrap justify-between ">
+          <div className="text-xl p-1 font-bold">Withdraw Token !</div>
+          <div className="mr-12 p-1">
+            Staked Balance is <b>{stakedBalance}</b>
+          </div>
         </div>
-      </div>
-      <div className="p-1 my-3">
-        <Input
-          onChange={(e) => setInputValue(e.target.value)}
-          validation={{
-            numberMax: stakedBalance,
-            numberMin: 0,
-          }}
-          type="number"
-          width="100%"
-          label="Withdraw Token"
-        />
-        <div className="pt-3 mt-3">
-          <Button
-            onClick={handleWithDrawToken}
-            text="Withdraw Token"
-            theme="primary"
+        <div className="p-1 my-3">
+          <Input
+            onChange={(e) => setInputValue(e.target.value)}
+            validation={{
+              numberMax: stakedBalance,
+              numberMin: 0,
+            }}
+            type="number"
+            width="100%"
+            label="Withdraw Token"
           />
+          <div className="pt-3 mt-3">
+            <Button
+              onClick={handleWithDrawToken}
+              text="Withdraw Token"
+              theme="primary"
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </NotificationProvider>
   );
 }
 
