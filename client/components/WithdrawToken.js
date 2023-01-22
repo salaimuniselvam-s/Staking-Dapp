@@ -66,7 +66,7 @@ function WithDrawToken({ setReloadPage, reloadPage, stakedBalance }) {
   }
 
   return (
-    <div className="text-black mr-6 basis-2/5 mt-6 p-3 grow bg-slate-100 rounded-xl">
+    <div className="text-black mr-6 basis-2/5 my-6 p-3 grow bg-slate-100 rounded-xl">
       <div className="flex flex-wrap justify-between ">
         <div className="text-xl p-1 font-bold">Withdraw Token !</div>
         <div className="mr-12 p-1">

@@ -57,7 +57,7 @@ function ClaimToken({ setReloadPage, reloadPage, earnedBalance }) {
   }
 
   return (
-    <div className="text-black grow basis-2/5  mt-6 p-3  bg-slate-100 rounded-xl">
+    <div className="text-black grow basis-2/5  my-6 p-3  bg-slate-100 rounded-xl">
       <div className="text-xl p-1 font-bold ">Claim Reward !</div>
       <div className="border-spacing-3 border rounded-2xl py-2 my-3 px-3 border-slate-300">
         Reward Balance is <b>{earnedBalance}</b>

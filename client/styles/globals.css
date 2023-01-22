@@ -3,15 +3,17 @@
 @tailwind utilities;
 
 html {
-    @apply h-full;
-  }
-  body {
-    @apply h-full;
-  }
-  div#__next {
-    @apply h-full;
-  }
-  main {
-    @apply h-full;
-  }
-  
+  @apply h-full;
+}
+body {
+  @apply h-full;
+}
+div#__next {
+  @apply h-full;
+}
+main {
+  @apply h-full;
+}
+body {
+  background-image: linear-gradient(to right, #d4d4d8, #c7d2fe) !important;
+}
