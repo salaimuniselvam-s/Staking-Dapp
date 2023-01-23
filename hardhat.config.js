@@ -11,11 +11,12 @@ const POLYGON_RPC_URL = process.env.POLYGON_RPC_URL || "";
 
 module.exports = {
   solidity: "0.8.6",
-  settings:{
-    optimizer:{
-      enabled:true,
-      runs:200
+  settings: {
+    optimizer: {
+      enabled: true,
+      runs: 200,
     },
+  },
 
   networks: {
     hardhat: {

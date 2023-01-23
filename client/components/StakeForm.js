@@ -35,7 +35,7 @@ function StakeForm({ setReloadPage, reloadPage }) {
         type: "error",
         message: `Stake Amount Should Be Greater than Zero`,
         title: "Stake Token",
-        position: "bottomR",
+        position: "topR",
       });
       return;
     }
@@ -51,7 +51,7 @@ function StakeForm({ setReloadPage, reloadPage }) {
           type: "error",
           message: "Staking Approve Failed.Please Try Again",
           title: "Staking Failed",
-          position: "bottomR",
+          position: "topR",
         });
         console.log(error);
       },
@@ -73,7 +73,7 @@ function StakeForm({ setReloadPage, reloadPage }) {
           type: "error",
           message: "Staking Failed.Please Try Again",
           title: "Staking Failed",
-          position: "bottomR",
+          position: "topR",
         });
         console.log(error);
       },
@@ -87,7 +87,7 @@ function StakeForm({ setReloadPage, reloadPage }) {
           amountToStakeFormatted
         )} Token is Successfully Staked`,
         title: "Successfully Staked..",
-        position: "bottomR",
+        position: "topR",
       });
       console.log("Stake transaction complete");
       setReloadPage(!reloadPage);

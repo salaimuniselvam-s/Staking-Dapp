@@ -92,7 +92,7 @@ function StakeDetails({
           message:
             "You have 0 Sms Tokens. Use Buy Section below to buy Sms tokens With Ethers",
           title: "Buy Sms Tokens",
-          position: "bottomR",
+          position: "topR",
         });
       }
 

@@ -24,7 +24,7 @@ function WithDrawToken({ setReloadPage, reloadPage, stakedBalance }) {
         type: "error",
         message: `Withdraw Amount Must  Greater than Zero`,
         title: "Withdraw Token",
-        position: "bottomR",
+        position: "topR",
       });
       return;
     } else if (Number(inputValue) > Number(stakedBalance)) {
@@ -32,7 +32,7 @@ function WithDrawToken({ setReloadPage, reloadPage, stakedBalance }) {
         type: "error",
         message: `Withdraw Amount Must  Less than Staked Balance`,
         title: "Withdraw Token",
-        position: "bottomR",
+        position: "topR",
       });
       return;
     }
@@ -51,7 +51,7 @@ function WithDrawToken({ setReloadPage, reloadPage, stakedBalance }) {
         type: "success",
         message: ``,
         title: "Successfully Withdrawn..",
-        position: "bottomR",
+        position: "topR",
       });
       setReloadPage(!reloadPage);
     } catch (error) {
@@ -60,7 +60,7 @@ function WithDrawToken({ setReloadPage, reloadPage, stakedBalance }) {
         type: "error",
         message: "Withdraw Failed.Please Try Again",
         title: "Withdraw Failed",
-        position: "bottomR",
+        position: "topR",
       });
     }
   }

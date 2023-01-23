@@ -3,10 +3,7 @@ import { useWeb3Contract } from "react-moralis";
 import RewardTokenABI from "../constants/RewardToken.json";
 import { Button, Input, useNotification } from "web3uikit";
 import { ethers } from "ethers";
-import {
-  ETHER_TO_SMS_TOKEN,
-  REWARD_TOKEN_ADDRESS,
-} from "../constants/address";
+import { ETHER_TO_SMS_TOKEN, REWARD_TOKEN_ADDRESS } from "../constants/address";
 
 function BuyToken({ setReloadPage, reloadPage }) {
   const smsTokenAddress = REWARD_TOKEN_ADDRESS;
@@ -27,7 +24,7 @@ function BuyToken({ setReloadPage, reloadPage }) {
         type: "error",
         message: `Token  Must  Greater than Zero`,
         title: "Buy Token",
-        position: "bottomR",
+        position: "topR",
       });
       return;
     }
@@ -46,7 +43,7 @@ function BuyToken({ setReloadPage, reloadPage }) {
         type: "success",
         message: ``,
         title: "Successfully Bought Token..",
-        position: "bottomR",
+        position: "topR",
       });
       setReloadPage(!reloadPage);
     } catch (error) {
@@ -55,34 +52,34 @@ function BuyToken({ setReloadPage, reloadPage }) {
         type: "error",
         message: "Token Buying Failed.Please Try Again",
         title: "Token Buying Failed",
-        position: "bottomR",
+        position: "topR",
       });
     }
   }
 
   return (
-      <div className="text-black grow basis-2/5  mt-6 p-3  bg-slate-100 rounded-xl">
-        <div className="flex flex-wrap justify-between ">
-          <div className="text-xl p-1 font-bold">Buy Token !</div>
-          <div className="mr-12 p-1">
-            1 Ether = <b>{ETHER_TO_SMS_TOKEN}(sms) </b> Tokens
-          </div>
-        </div>
-        <div className="p-1 mb-2 mt-3">
-          <Input
-            onChange={(e) => setInputValue(e.target.value)}
-            validation={{
-              numberMin: 0,
-            }}
-            type="number"
-            width="100%"
-            label="Buy Token"
-          />
-          <div className="pt-3 ">
-            <Button onClick={handleBuyToken} text="Buy Token" theme="primary" />
-          </div>
+    <div className="text-black grow basis-2/5  mt-6 p-3  bg-slate-100 rounded-xl">
+      <div className="flex flex-wrap justify-between ">
+        <div className="text-xl p-1 font-bold">Buy Token !</div>
+        <div className="mr-12 p-1">
+          1 Ether = <b>{ETHER_TO_SMS_TOKEN}(sms) </b> Tokens
         </div>
       </div>
+      <div className="p-1 mb-2 mt-3">
+        <Input
+          onChange={(e) => setInputValue(e.target.value)}
+          validation={{
+            numberMin: 0,
+          }}
+          type="number"
+          width="100%"
+          label="Buy Token"
+        />
+        <div className="pt-3 ">
+          <Button onClick={handleBuyToken} text="Buy Token" theme="primary" />
+        </div>
+      </div>
+    </div>
   );
 }
 

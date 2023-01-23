@@ -24,30 +24,21 @@ export default function Home() {
     setEarnedBalance,
   };
   return (
-    <main className="bg-gradient-to-r  from-zinc-300 to-indigo-200">
-      <div className={` ${styles.container}`}>
-        <Header />
-        <NotificationProvider>
+    <NotificationProvider>
+      <main className="bg-gradient-to-r  from-zinc-300 to-indigo-200">
+        <div className={` ${styles.container}`}>
+          <Header />
           <StakeDetails {...props} />
-        </NotificationProvider>
-
-        <div className="flex flex-wrap">
-          <NotificationProvider>
+          <div className="flex flex-wrap">
             <StakeForm {...props} />
-          </NotificationProvider>
-          <NotificationProvider>
             <BuyToken {...props} />
-          </NotificationProvider>
-        </div>
-        <div className="flex flex-wrap ">
-          <NotificationProvider>
+          </div>
+          <div className="flex flex-wrap ">
             <WithDrawToken {...props} />
-          </NotificationProvider>
-          <NotificationProvider>
             <ClaimToken {...props} />
-          </NotificationProvider>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </NotificationProvider>
   );
 }
